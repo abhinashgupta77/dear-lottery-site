@@ -1,0 +1,28 @@
+name: Sync Posters
+
+on:
+  schedule:
+    - cron: "25 7 * * *"
+    - cron: "25 12 * * *"
+    - cron: "25 14 * * *"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download posters
+        run: |
+          mkdir temp
+          wget -O temp.zip "https://drive.google.com/uc?export=download&id=1FiycHId4_fkkjCCHdEt1EN2pnu5dhItr"
+          unzip -o temp.zip -d posters
+
+      - name: Commit
+        run: |
+          git config --global user.email "bot@dear.com"
+          git config --global user.name "Poster Bot"
+          git add posters
+          git commit -m "Auto update posters" || echo "No change"
+          git push
