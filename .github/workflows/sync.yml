@@ -14,16 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Download posters
-        run: |
-          mkdir temp
-          wget -O temp.zip "https://drive.google.com/uc?export=download&id=1FiycHId4_fkkjCCHdEt1EN2pnu5dhItr"
-          unzip -o temp.zip -d posters
+      - name: Install gdown
+        run: pip install gdown
 
-      - name: Commit
+      - name: Download Google Drive folder
+        run: |
+          gdown --folder https://drive.google.com/drive/folders/F1yCHId4_fkkjCCHdEt1EN2npu5dhTr -O posters
+
+      - name: Commit posters
         run: |
           git config --global user.email "bot@dear.com"
           git config --global user.name "Poster Bot"
           git add posters
-          git commit -m "Auto update posters" || echo "No change"
+          git commit -m "Auto update posters" || echo "No changes"
           git push
