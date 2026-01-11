@@ -1,6 +1,7 @@
 name: Sync Posters
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "25 7 * * *"
     - cron: "25 12 * * *"
