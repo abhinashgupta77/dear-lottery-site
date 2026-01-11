@@ -19,7 +19,7 @@ jobs:
 
       - name: Download Google Drive folder
         run: |
-          gdown --folder https://drive.google.com/drive/folders/F1yCHId4_fkkjCCHdEt1EN2npu5dhTr -O posters
+          gdown --folder https://drive.google.com/drive/folders/1FiycHId4_fkkjCCHdEt1EN2pnu5dhItr -O posters
 
       - name: Commit posters
         run: |
