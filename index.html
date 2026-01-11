@@ -136,7 +136,7 @@ const today = new Date().toISOString().split("T")[0];
 const slotKey = getSlotKey();
 const slotName = getSlot();
 
-document.getElementById("poster").src = "posters/" + today + "-" + slotKey + ".jpg";
+document.getElementById("poster").src = "posters/" + today + "-" + slotKey + ".jpeg";
 document.getElementById("slot").textContent = slotName;
 document.getElementById("time").textContent = new Date().toLocaleString();
 document.getElementById("year").textContent = new Date().getFullYear();
