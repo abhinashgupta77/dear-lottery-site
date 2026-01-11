@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dear Lottery Result</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+body {
+  margin: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+img {
+  width: 100%;
+  max-width: 600px;
+}
+</style>
+</head>
+<body>
+
+<img id="poster">
+
+<script>
+function getSlot() {
+  const h = new Date().getHours();
+  if (h < 13) return "1pm";
+  if (h < 18) return "6pm";
+  return "8pm";
+}
+
+const today = new Date().toISOString().split("T")[0];
+const slot = getSlot();
+
+document.getElementById("poster").src = "posters/" + today + "-" + slot + ".jpeg";
+</script>
+
+</body>
+</html>
