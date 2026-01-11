@@ -44,7 +44,7 @@ function getSlotName() {
 
 const today = new Date().toISOString().split("T")[0];
 const slot = getSlotKey();
-const img = "posters/" + today + "-" + slot + ".jpg";
+const img = "posters/" + today + "-" + slot + ".jpeg";
 
 document.getElementById("poster").src = img;
 document.getElementById("slot").textContent = getSlotName();
